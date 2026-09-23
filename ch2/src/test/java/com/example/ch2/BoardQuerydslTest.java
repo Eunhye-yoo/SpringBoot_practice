@@ -11,10 +11,10 @@
 //
 //import java.util.List;
 //
-//import static com.example.ch2.QBoard.board;
 //import static org.junit.jupiter.api.Assertions.assertEquals;
-//import static org.junit.jupiter.api.Assertions.assertTrue;
 //
+//import static com.example.ch2.QBoard.board;
+//import static org.junit.jupiter.api.Assertions.assertTrue;
 //
 //@SpringBootTest
 //@Transactional // 테스트 끝나면 DB 롤백
@@ -27,7 +27,7 @@
 //    JPAQueryFactory qf; // QueryDSL의 모든 쿼리의 시작점
 //
 //    @BeforeEach
-//    public void setup(){
+//    public void setup() {
 //        qf = new JPAQueryFactory(em);
 //        for (int i = 1; i <= 100; i++){
 //            Board list = new Board();
@@ -37,13 +37,12 @@
 //            list.setViewCnt((long)i);
 //            boardRepository.save(list);
 //        }
-//
 //    }
 //
 //    @Test
-//    @DisplayName("기본 조회 - 작성자로 글 찾기")
+//    @DisplayName("기본조회 - 작성자로 글 찾기")
 //    public void findByWriter(){
-//        List<Board> boards =  qf.selectFrom(board)
+//        List<Board> boards = qf.selectFrom(board)
 //                .where(board.writer.eq("writer1"))
 //                .fetch();
 //
@@ -54,15 +53,17 @@
 //    @DisplayName("여러 조건")
 //    public void conditionTest(){
 //        // SELECT * FROM board WHERE title Like "title1%" AND viewCnt >= 50
-//        List<Board> list =
-//        qf.selectFrom(board)
+//        List<Board> list = qf.selectFrom(board)
 //                .where(board.title.like("title1%"),
 //                        board.viewCnt.goe(50L))
 //                .orderBy(board.viewCnt.desc())
 //                .fetch();
 ////                .where(board.title.like("title1%")
 ////                        .and(board.viewCnt.goe(50L)))
-//        list.forEach(board-> assertTrue(board.getViewCnt() >= 50));
-//        list.forEach(board-> assertTrue(board.getTitle().startsWith("title1")));
+//        list.forEach(board -> assertTrue(board.getViewCnt() >= 50));
+//        list.forEach(board -> assertTrue(board.getTitle().startsWith("title1")));
+//        list.forEach(System.out::println);
+//
 //    }
+//
 //}

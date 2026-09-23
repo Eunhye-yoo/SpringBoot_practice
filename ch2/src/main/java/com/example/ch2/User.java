@@ -18,6 +18,13 @@ public class User {
 //    private String sns;
 //    private Date reg_date;
 
+//    @Id
+//    @GeneratedValue
+//    @Column(name = "user_id")
+//    private Long id;
+//    private String firstName;
+//    private String lastName;
+
     @Id
     @GeneratedValue
     @Column(name = "user_id")
@@ -26,9 +33,8 @@ public class User {
     private String lastName;
 
     // fetch 전략
-    // - EAGER : User 조회 시 게시글도 모두 찾음 (boards에 작성글 모두 저장)
-    // - LAZY(기본-default) : User만 조회 -> 게시글은 찾지 않음 (boards에 작성글 저장 X)
+    // - EAGER : User 조회시 게시글도 모두 찾음 (boards에 작성글 모두 저장)
+    // - LAZY(기본) : User만 조회 -> 게시글은 찾지 않음 (boards에 작성글 저장 x)
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<Board> boards = new ArrayList<>();
-
 }

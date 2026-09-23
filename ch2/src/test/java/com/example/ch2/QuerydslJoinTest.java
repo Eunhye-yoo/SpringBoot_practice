@@ -27,7 +27,7 @@ public class QuerydslJoinTest {
     JPAQueryFactory qf;
 
     @BeforeEach
-    public void setup(){
+    public void setup() {
         qf = new JPAQueryFactory(em);
 
         // 작성자 1명 - 쓴 글 3개
@@ -36,28 +36,26 @@ public class QuerydslJoinTest {
         user.setLastName("Last");
         userRepository.save(user);
 
-        for(int i= 1; i <=3; i++){
+        for (long i = 1; i <= 3; i++) {
             Board board = new Board();
-            board.setTitle("title" +i);
+            board.setTitle("title"+i);
             board.setUser(user);
-            board.setContent("content" + i);
+            board.setContent("content"+i);
             board.setViewCnt(i);
             boardRepository.save(board);
         }
     }
 
     @Test
-    @DisplayName("연관관계 - 사용자의 이름으로 글 검색 [User, Board 테이블 조인]")
-    // SELECT b.* FROM Board b JOIN User u ON b.user_id = u.user_id
+    @DisplayName("연관관계 - 사용자의 이름으로 글 검색[User, Board 테이블 조인]")
+    // SELECT b.* FROM board b JOIN user u ON b.user_id = u.user_id
     // WHERE u.last_name = "Last"
     public void joinTest(){
-       List<Board> list = qf.selectFrom(board)
-                .join(board.user, user) // 연관관계이므로 바ㅗㄹ join 가능
+        List<Board> list = qf.selectFrom(board)
+                .join(board.user, user) // 연관관계이므로 바로 join가능
                 .where(user.lastName.eq("Last"))
                 .fetch();
-       assertEquals(3, list.size());
+        assertEquals(3, list.size());
     }
-
-
 
 }

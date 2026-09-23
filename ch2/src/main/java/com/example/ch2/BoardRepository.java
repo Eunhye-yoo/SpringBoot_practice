@@ -8,7 +8,7 @@ import java.util.List;
 
 //public interface BoardRepository extends CrudRepository<Board, Long> {
 // CrudRepository -> JpaRepository로 변경
-// JpaRepository는 CrudRepository의 모든 기능 + 페이징 기능 + JPA 특화 기능
+// JpaRepository는 CrudRepository의 모든 기능 + 페이징 + JPA 특화 기능
 public interface BoardRepository extends JpaRepository<Board, Long> {
 //    // JPA는 메서드 이름에 특정 규칙 적용 따라서 메서드 이름에 따라 자동으로 쿼리 작성 가능
 //
@@ -28,7 +28,7 @@ public interface BoardRepository extends JpaRepository<Board, Long> {
 //
 //    // 전체 게시물을 조회수로 내림차순
 //    // SELECT * FROM Board ORDER BY viewCnt DESC
-//    // findAllBy + OrderBy + 필드명 + DESC/ASC
+//    //  findAllBy + OrderBy + 필드명 + Desc|Asc
 //    List<Board> findAllByOrderByViewCntDesc();
 //
 //    // SELECT * FROM Board WHERE WRITER = :writer ORDER BY viewCnt DESC
