@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="noticeFragment">
+    <h2>공지사항</h2>
+    <ul>
+        <li th:each="notice : ${notices}" th:text="${notice}">공지 내용</li>
+    </ul>
+    <nav style="margin: 10px 0;">
+        <a href="/practice">메인</a> |
+        <a href="/members/join">회원가입</a> |
+        <a href="/boards/list">게시판</a>
+    </nav>
+    <hr/>
+</div>
+</html>

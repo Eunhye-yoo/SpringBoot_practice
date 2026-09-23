@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"
+    xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 th:text="${lastName}">성</h1>
+    <h1 th:text="${firstName}">이름</h1>
+
+    <h3>각 메모리 영역 데이터 확인</h3>
+<ul>
+    <li>
+        <strong>Request 영역</strong>
+        <span th:text="${req}"></span>
+    </li>
+    <li>
+        <strong>Session 영역</strong>
+        <span th:text="${session.sess}"></span>
+    </li>
+    <li>
+        <strong>Application 영역</strong>
+        <span th:text="${application.ctx}"></span>
+    </li>
+</ul>
+    <!-- model이 request 영역보다 우선순위가 높다 -->
+    <h2 th:text="${msg}"></h2>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>회원가입</title>
+</head>
+<body>
+<!-- 공통 공지사항 조각 삽입 -->
+<div th:replace="~{fragments/notice :: noticeFragment}"></div>
+
+<h2>② 회원가입 폼</h2>
+<form action="/members/join" method="post">
+  <div>
+    <label>이름: </label>
+    <input type="text" name="name" placeholder="이름 입력" required>
+  </div>
+  <div>
+    <label>이메일: </label>
+    <input type="email" name="email" placeholder="이메일 입력" required>
+  </div>
+  <div>
+    <label>비밀번호: </label>
+    <input type="password" name="password" required>
+  </div>
+  <button type="submit" style="margin-top: 5px;">가입하기</button>
+</form>
+</body>
+</html>

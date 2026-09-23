@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시판</title>
+  <style>
+    table { border-collapse: collapse; width: 600px; }
+    th, td { border: 1px solid #ccc; padding: 6px 10px; }
+    th { background-color: #eee; }
+    .notice-tag { color: red; font-weight: bold; }
+  </style>
+</head>
+<body>
+<!-- 공통 공지사항 조각 삽입 -->
+<div th:replace="~{fragments/notice :: noticeFragment}"></div>
+
+<h2>③ 게시판</h2>
+<table>
+  <thead>
+  <tr>
+    <th>No</th>
+    <th>제목</th>
+    <th>작성자</th>
+    <th>작성일</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="board : ${boardList}">
+    <td style="text-align: center;" th:text="${board.no}">1</td>
+    <td>
+      <!-- isNotice가 true일 때만 [공지] 태그를 빨간색으로 출력 -->
+      <span th:if="${board.isNotice}" class="notice-tag">[공지]</span>
+      <span th:text="${board.title}">글 제목</span>
+    </td>
+    <td style="text-align: center;" th:text="${board.writer}">작성자</td>
+    <td style="text-align: center;">
+      <!-- temporals 유틸리티로 날짜 포맷 적용: 2025-08-27 08:07 -->
+      <span th:text="${#temporals.format(board.regDate, 'yyyy-MM-dd HH:mm')}">작성일시</span>
+    </td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <!-- thymeleaf에서 문자열과 변수를 같이 사용할 경우 || 사용
+    ${year}+"년"+${month}.. 이렇게 작성하지 않아도 된다.-->
+    <h1 th:text="|${year}년 ${month}월 ${day}일은 ${yoil}입니다.|"></h1>
+</body>
+</html>

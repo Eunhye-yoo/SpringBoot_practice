@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<body>
+    <div layout:fragment="content">
+        <h2>회원 가입</h2>
+        <form th:action="@{/members/join}" method="post">
+            <input type="text" name="userID" placeholder="id">
+            <input type="password" name="userPw" placeholder="password">
+            <button type="submit">가입하기</button>
+        </form>
+    </div>
+</body>
+</html>

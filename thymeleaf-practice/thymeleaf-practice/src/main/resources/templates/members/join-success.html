@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>가입 완료</title>
+</head>
+<body>
+<!-- 공통 공지사항 조각 삽입 -->
+<div th:replace="~{fragments/notice :: noticeFragment}"></div>
+
+<h2>가입이 완료되었습니다 🎉</h2>
+<p>이름: <span th:text="${joinedMember.name}">홍길동</span></p>
+<p>이메일: <span th:text="${joinedMember.email}">test@test.com</span></p>
+<p>비밀번호: <span th:text="${joinedMember.password}">1234</span></p>
+
+<br/>
+<a href="/members/join">다시 가입하기</a>
+</body>
+</html>
